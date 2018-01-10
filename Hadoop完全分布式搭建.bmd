@@ -1,0 +1,1208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<map name="Hadoop完全分布式搭建" document_type="BLUMIND" editor_version="1.3.1.0">
+  <!--Create by Blumind, you can download it free from http://www.hyfree.net/download-->
+  <info />
+  <layout>LOGIC_RIGHT</layout>
+  <attributes>
+    <item name="editor_show_sidebar">True</item>
+  </attributes>
+  <style>
+    <back_color>White</back_color>
+    <fore_color>Black</fore_color>
+    <line_color>LightSlateGray</line_color>
+    <border_color>SlateGray</border_color>
+    <node_back_color>LightGray</node_back_color>
+    <node_fore_color>Black</node_fore_color>
+    <select_color>RoyalBlue</select_color>
+    <hover_color>MediumSlateBlue</hover_color>
+    <link_line_color>Green</link_line_color>
+  </style>
+  <nodes>
+    <node text="Hadoop_HA搭建">
+      <style>
+        <back_color>Silver</back_color>
+        <fore_color>Black</fore_color>
+        <border_color>Black</border_color>
+        <padding>12</padding>
+      </style>
+      <widgets>
+        <widget type="NOTES" />
+        <widget type="NOTES" />
+        <widget type="NOTES" />
+        <widget type="NOTES" />
+        <widget type="NOTES" />
+        <widget type="NOTES" />
+        <widget type="NOTES" />
+        <widget type="NOTES" />
+        <widget type="NOTES" />
+        <widget type="NOTES" />
+        <widget type="NOTES" />
+        <widget type="NOTES" />
+        <widget type="NOTES" />
+        <widget type="NOTES" />
+      </widgets>
+      <nodes>
+        <node text="安装JDK并配置环境变量" folded="True">
+          <widgets>
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+          </widgets>
+          <nodes>
+            <node text="rpm -i jdk-7u67-linux-x64.rpm">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+            </node>
+            <node text="vi ~/.bash_profile">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="export JAVA_HOME=/usr/java/jdk1.7.0_67&#xD;&#xA;export PATH=$PATH:$JAVA_HOME/bin">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+              </nodes>
+            </node>
+            <node text="source ~/.bash_profile">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+            </node>
+          </nodes>
+        </node>
+        <node text="免密钥" folded="True">
+          <widgets>
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+          </widgets>
+          <nodes>
+            <node text="ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa&#xD;&#xA;">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+            </node>
+            <node text="ssh-copy-id node1">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+            </node>
+            <node text="ssh-copy-id node2">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+            </node>
+            <node text="ssh-copy-id node3">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+            </node>
+            <node text="ssh-copy-id node4">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+            </node>
+          </nodes>
+        </node>
+        <node text="配置zookeeper" folded="True">
+          <widgets>
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+          </widgets>
+          <nodes>
+            <node text="配置环境变量">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="vi ~/.bash_profile">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                  <nodes>
+                    <node text="export ZOOKEEPER_HOME=/usr/hadoopsoft/zookeeper-3.4.6&#xD;&#xA;export PATH=$PATH:$ZOOKEEPER_HOME/bin">
+                      <widgets>
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                      </widgets>
+                    </node>
+                  </nodes>
+                </node>
+                <node text="source ~/.bash_profile">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+              </nodes>
+            </node>
+            <node text="cd zookeeper-3.4.6/conf/">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="mv zoo_sample.cfg zoo.cfg">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+                <node text="vi zoo.cfg">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                  <nodes>
+                    <node text="修改dataDir=/opt/zookeeper">
+                      <widgets>
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                      </widgets>
+                    </node>
+                    <node text="文件尾部增加&#xD;&#xA;server.1=node1:2888:3888&#xD;&#xA;server.2=node2:2888:3888&#xD;&#xA;server.3=node3:2888:3888">
+                      <widgets>
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                      </widgets>
+                    </node>
+                  </nodes>
+                </node>
+              </nodes>
+            </node>
+            <node text="dataDir目录下增加myid文件&#xD;&#xA;myid中写当前zookeeper服务的id">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="echo &quot;1&quot; &gt; /opt/zookeeper/myid">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+              </nodes>
+            </node>
+            <node text="启动服务 zkServer.sh start">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+            </node>
+          </nodes>
+        </node>
+        <node text="配置hadoop" folded="True">
+          <widgets>
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+          </widgets>
+          <nodes>
+            <node text="配置环境变量" folded="True">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="vi ~/.bash_profile">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                  <nodes>
+                    <node text="export HADOOP_HOME=/usr/hadoopsoft/hadoop-2.5.2&#xD;&#xA;export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin">
+                      <widgets>
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                      </widgets>
+                    </node>
+                  </nodes>
+                </node>
+                <node text="source ~/.bash_profile">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+              </nodes>
+            </node>
+            <node text="修改配置hadoop-2.5.2/etc/hadoop/" folded="True">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="vi hadoop-env.sh" folded="True">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                  <nodes>
+                    <node text="修改export JAVA_HOME=/usr/java/jdk1.7.0_67">
+                      <widgets>
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                      </widgets>
+                    </node>
+                  </nodes>
+                </node>
+                <node text="vi hdfs-site.xml" folded="True">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                  <nodes>
+                    <node text="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xD;&#xA;&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;&#xD;&#xA;&lt;configuration&gt;&#xD;&#xA;&lt;property&gt;&#xD;&#xA;  &lt;name&gt;dfs.nameservices&lt;/name&gt;&#xD;&#xA;  &lt;value&gt;mycluster&lt;/value&gt;&#xD;&#xA;&lt;/property&gt;&#xD;&#xA;&lt;property&gt;&#xD;&#xA;  &lt;name&gt;dfs.ha.namenodes.mycluster&lt;/name&gt;&#xD;&#xA;  &lt;value&gt;nn1,nn2&lt;/value&gt;&#xD;&#xA;&lt;/property&gt;&#xD;&#xA;&lt;property&gt;&#xD;&#xA;  &lt;name&gt;dfs.namenode.rpc-address.mycluster.nn1&lt;/name&gt;&#xD;&#xA;  &lt;value&gt;node1:8020&lt;/value&gt;&#xD;&#xA;&lt;/property&gt;&#xD;&#xA;&lt;property&gt;&#xD;&#xA;  &lt;name&gt;dfs.namenode.rpc-address.mycluster.nn2&lt;/name&gt;&#xD;&#xA;  &lt;value&gt;node2:8020&lt;/value&gt;&#xD;&#xA;&lt;/property&gt;&#xD;&#xA;&lt;property&gt;&#xD;&#xA;  &lt;name&gt;dfs.namenode.http-address.mycluster.nn1&lt;/name&gt;&#xD;&#xA;  &lt;value&gt;node1:50070&lt;/value&gt;&#xD;&#xA;&lt;/property&gt;&#xD;&#xA;&lt;property&gt;&#xD;&#xA;  &lt;name&gt;dfs.namenode.http-address.mycluster.nn2&lt;/name&gt;&#xD;&#xA;  &lt;value&gt;node2:50070&lt;/value&gt;&#xD;&#xA;&lt;/property&gt;&#xD;&#xA;&lt;property&gt;&#xD;&#xA;  &lt;name&gt;dfs.namenode.shared.edits.dir&lt;/name&gt;&#xD;&#xA;  &lt;value&gt;qjournal://node2:8485;node3:8485;node4:8485/mycluster&lt;/value&gt;&#xD;&#xA;&lt;/property&gt;&#xD;&#xA;&lt;property&gt;&#xD;&#xA;  &lt;name&gt;dfs.client.failover.proxy.provider.mycluster&lt;/name&gt;&#xD;&#xA;&lt;value&gt;org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider&lt;/value&gt;&#xD;&#xA;&lt;/property&gt;&#xD;&#xA;&lt;property&gt;&#xD;&#xA;  &lt;name&gt;dfs.ha.fencing.methods&lt;/name&gt;&#xD;&#xA;  &lt;value&gt;sshfence&lt;/value&gt;&#xD;&#xA;&lt;/property&gt;&#xD;&#xA;&lt;property&gt;&#xD;&#xA;  &lt;name&gt;dfs.ha.fencing.ssh.private-key-files&lt;/name&gt;&#xD;&#xA;  &lt;value&gt;/root/.ssh/id_rsa&lt;/value&gt;&#xD;&#xA;&lt;/property&gt;&#xD;&#xA;&lt;property&gt;&#xD;&#xA;  &lt;name&gt;dfs.journalnode.edits.dir&lt;/name&gt;&#xD;&#xA;  &lt;value&gt;/opt/journal/data&lt;/value&gt;&#xD;&#xA;&lt;/property&gt;&#xD;&#xA;&lt;property&gt;&#xD;&#xA;  &lt;name&gt;dfs.ha.automatic-failover.enabled&lt;/name&gt;&#xD;&#xA;  &lt;value&gt;true&lt;/value&gt;&#xD;&#xA;&lt;/property&gt;&#xD;&#xA;&lt;/configuration&gt;">
+                      <widgets>
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                      </widgets>
+                    </node>
+                  </nodes>
+                </node>
+                <node text="vi core-site.xml" folded="True">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                  <nodes>
+                    <node text="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xD;&#xA;&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;&#xD;&#xA;&lt;configuration&gt;&#xD;&#xA;&lt;property&gt;&#xD;&#xA;  &lt;name&gt;fs.defaultFS&lt;/name&gt;&#xD;&#xA;  &lt;value&gt;hdfs://mycluster&lt;/value&gt;&#xD;&#xA;&lt;/property&gt;&#xD;&#xA;&lt;property&gt;&#xD;&#xA;  &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;&#xD;&#xA;  &lt;value&gt;/opt/hadoop&lt;/value&gt;&#xD;&#xA;&lt;/property&gt;&#xD;&#xA;&lt;property&gt;&#xD;&#xA;  &lt;name&gt;ha.zookeeper.quorum&lt;/name&gt;&#xD;&#xA;  &lt;value&gt;node1:2181,node2:2181,node3:2181&lt;/value&gt;&#xD;&#xA;&lt;/property&gt;&#xD;&#xA;&lt;/configuration&gt;">
+                      <widgets>
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                      </widgets>
+                    </node>
+                  </nodes>
+                </node>
+                <node text="vi mapred-site.xml" folded="True">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                  <nodes>
+                    <node text="&lt;?xml version=&quot;1.0&quot;?&gt;&#xD;&#xA;&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;&#xD;&#xA;&lt;configuration&gt;&#xD;&#xA;    &lt;property&gt;&#xD;&#xA;        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;&#xD;&#xA;        &lt;value&gt;yarn&lt;/value&gt;&#xD;&#xA;    &lt;/property&gt;&#xD;&#xA;&lt;/configuration&gt;">
+                      <widgets>
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                      </widgets>
+                    </node>
+                  </nodes>
+                </node>
+                <node text="vi yarn-site.xml" folded="True">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                  <nodes>
+                    <node text="&lt;?xml version=&quot;1.0&quot;?&gt;&#xD;&#xA;&lt;configuration&gt;&#xD;&#xA; &lt;property&gt;&#xD;&#xA;   &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;&#xD;&#xA;   &lt;value&gt;mapreduce_shuffle&lt;/value&gt;&#xD;&#xA; &lt;/property&gt;&#xD;&#xA; &lt;property&gt;&#xD;&#xA;   &lt;name&gt;yarn.resourcemanager.ha.enabled&lt;/name&gt;&#xD;&#xA;   &lt;value&gt;true&lt;/value&gt;&#xD;&#xA; &lt;/property&gt;&#xD;&#xA; &lt;property&gt;&#xD;&#xA;   &lt;name&gt;yarn.resourcemanager.cluster-id&lt;/name&gt;&#xD;&#xA;   &lt;value&gt;cluster1&lt;/value&gt;&#xD;&#xA; &lt;/property&gt;&#xD;&#xA; &lt;property&gt;&#xD;&#xA;   &lt;name&gt;yarn.resourcemanager.ha.rm-ids&lt;/name&gt;&#xD;&#xA;   &lt;value&gt;rm1,rm2&lt;/value&gt;&#xD;&#xA; &lt;/property&gt;&#xD;&#xA; &lt;property&gt;&#xD;&#xA;   &lt;name&gt;yarn.resourcemanager.hostname.rm1&lt;/name&gt;&#xD;&#xA;   &lt;value&gt;node3&lt;/value&gt;&#xD;&#xA; &lt;/property&gt;&#xD;&#xA; &lt;property&gt;&#xD;&#xA;   &lt;name&gt;yarn.resourcemanager.hostname.rm2&lt;/name&gt;&#xD;&#xA;   &lt;value&gt;node4&lt;/value&gt;&#xD;&#xA; &lt;/property&gt;&#xD;&#xA; &lt;property&gt;&#xD;&#xA;   &lt;name&gt;yarn.resourcemanager.zk-address&lt;/name&gt;&#xD;&#xA;   &lt;value&gt;node1:2181,node2:2181,node3:2181&lt;/value&gt;&#xD;&#xA; &lt;/property&gt;&#xD;&#xA;&lt;/configuration&gt;">
+                      <widgets>
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                      </widgets>
+                    </node>
+                  </nodes>
+                </node>
+                <node text="vi slaves" folded="True">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                  <nodes>
+                    <node text="文件增加datenode节点：&#xD;&#xA;node2&#xD;&#xA;node3&#xD;&#xA;node4">
+                      <widgets>
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                      </widgets>
+                    </node>
+                  </nodes>
+                </node>
+              </nodes>
+            </node>
+            <node text="同步每台机器的hadoop配置">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+            </node>
+            <node text="先开启zookeeper集群">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+            </node>
+            <node text="三台JN上启动JN">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="hadoop-daemons.sh start journalnode">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+              </nodes>
+            </node>
+            <node text="找一台NN 执行格式化">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="hdfs namenode -format">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+              </nodes>
+            </node>
+            <node text="启动当前NN">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="hadoop-daemon.sh start namenode">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+              </nodes>
+            </node>
+            <node text="在没有格式化的NN上 执行同步命令">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="hdfs namenode -bootstrapStandby">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+              </nodes>
+            </node>
+            <node text="格式ZK">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="hdfs zkfc -formatZK">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+              </nodes>
+            </node>
+            <node text="启动集群">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="start-dfs.sh">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+              </nodes>
+            </node>
+            <node text="启动yarn">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="start-yarn.sh">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+              </nodes>
+            </node>
+            <node text="两台rm上启动rm">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="yarn-daemon.sh start resourcemanager">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                </node>
+              </nodes>
+            </node>
+          </nodes>
+        </node>
+        <node text="常见问题">
+          <widgets>
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+            <widget type="NOTES" />
+          </widgets>
+          <nodes>
+            <node text="出现native库无法加载问题">
+              <widgets>
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+                <widget type="NOTES" />
+              </widgets>
+              <nodes>
+                <node text="官网提供的hadoop2.4版本之后不包括2.4的native库都是64位的，&#xD;&#xA;一般native库无法加载都GLIBC版本问题官网用的比较新。">
+                  <widgets>
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                    <widget type="NOTES" />
+                  </widgets>
+                  <nodes>
+                    <node text="使用命令查看glibc版本">
+                      <widgets>
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                      </widgets>
+                      <nodes>
+                        <node text="strings /lib64/libc.so.6 | grep GLIBC">
+                          <widgets>
+                            <widget type="NOTES" />
+                            <widget type="NOTES" />
+                            <widget type="NOTES" />
+                            <widget type="NOTES" />
+                            <widget type="NOTES" />
+                            <widget type="NOTES" />
+                            <widget type="NOTES" />
+                          </widgets>
+                        </node>
+                        <node text="strings libhadoop.so.1.0.0 | grep GLIBC">
+                          <widgets>
+                            <widget type="NOTES" />
+                            <widget type="NOTES" />
+                            <widget type="NOTES" />
+                            <widget type="NOTES" />
+                            <widget type="NOTES" />
+                            <widget type="NOTES" />
+                            <widget type="NOTES" />
+                          </widgets>
+                        </node>
+                      </nodes>
+                    </node>
+                    <node text="如本机版本低升级glibc即可">
+                      <widgets>
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                        <widget type="NOTES" />
+                      </widgets>
+                    </node>
+                  </nodes>
+                </node>
+              </nodes>
+            </node>
+            <node text="调度器资源比较方式">
+              <nodes>
+                <node text="yarn.scheduler.capacity.resource-calculator">
+                  <nodes>
+                    <node text="调度器中用于比较和操作资源的ResourceCalculator，默认为org.apache.hadoop.yarn.util.resource.DefaultResourseCalculator，该类仅比较了内存资源，而DominantResourceCalculator则比较了内存、CPU等多维资源 。" />
+                  </nodes>
+                </node>
+              </nodes>
+            </node>
+          </nodes>
+        </node>
+      </nodes>
+    </node>
+  </nodes>
+</map>
